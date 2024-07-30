@@ -12,8 +12,10 @@
   <a href="#demo"><strong>Demo</strong></a> ·
   <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
   <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
+  <a href="#setting-up-the-policies-in-supabase"><strong>Policies</strong></a>
+  <a href="#create-a-function-to-transfer-auth-users-to-a-new-public-users-database"><strong>Database functions</strong></a>
+  <a href="#create-a-trigger-into-the-auth-schema-(private)"><strong>Database auth trigger</strong></a>
+  <a href="#add-google-as-authentication provider"><strong>Google as provider</strong></a>
 </p>
 <br/>
 
@@ -33,37 +35,18 @@
 
 ## Demo
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
-
-## Deploy to Vercel
-
-Vercel deployment will guide you through creating a Supabase account and project.
-
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This%20starter%20configures%20Supabase%20Auth%20to%20use%20cookies%2C%20making%20the%20user's%20session%20available%20throughout%20the%20entire%20Next.js%20app%20-%20Client%20Components%2C%20Server%20Components%2C%20Route%20Handlers%2C%20Server%20Actions%20and%20Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png&integration-ids=oac_VqOgBHqhEoFTPzGkPd7L0iH6)
-
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
-
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+You can view a fully working demo at [grayola-t](https://grayola-t.vercel.app/).
 
 ## Clone and run locally
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+1. After cloning the repo you'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
 
-2. Create a Next.js app using the Supabase Starter template npx command
-
-   ```bash
-   npx create-next-app -e with-supabase
-   ```
-
-3. Use `cd` to change into the app's directory
+2. Install all dependencies
 
    ```bash
-   cd name-of-new-app
+   npm i
    ```
-
-4. Rename `.env.local.example` to `.env.local` and update the following:
+3. Rename `.env.local.example` to `.env.local` and update the following:
 
    ```
    NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
@@ -78,16 +61,27 @@ If you wish to just develop locally and not deploy to Vercel, [follow the steps 
    npm run dev
    ```
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+   This will be running on [localhost:3000](http://localhost:3000/).
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+> Check out [Build a User Management App with Next.js](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs?queryGroups=language&language=ts) to further information and examples.
 
-## Feedback and issues
+## Setting up the policies in supabase
+You will need to create new policies into your supabase authentication section and apply them in the projects database.
 
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+<img alt="Policies supabase screenshot" src="https://res.cloudinary.com/dut4cwhtd/image/upload/v1722337952/a35b5be4-5c09-4d5a-a869-bdc32f5667de.png">
+Visit [Build a User Management App with Next.js](https://supabase.com/docs/guides/database/postgres/row-level-security) for policies documentation
 
-## More Supabase examples
+## Create a function to transfer auth users to a new public users database. 
+This is done to preserve automatic authentication services and allowing to manipulate relations based on the role of the user.
 
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+<img alt="Function example subabase screenshot " src="https://res.cloudinary.com/dut4cwhtd/image/upload/v1722338525/fd14bec1-572e-4e02-8ee0-ff9c9f1b529e.png">
+
+## Create a trigger into the auth schema (private)
+This way it can fire the function after the flow of the "usear-authenticated" 
+
+<img alt="Function example subabase screenshot " src="https://res.cloudinary.com/dut4cwhtd/image/upload/v1722338894/bf51642e-52d8-4965-9f80-fc2135ba911f.png">
+
+## Add google as authentication provider
+Google is the provider selected for the authentication process. Into supabase authentication page you must enable it and copy the credential needed to connect with good auth client providers
+
+> Check out [Login with Google](https://supabase.com/docs/guides/auth/social-login/auth-google?queryGroups=environment&environment=server) to know more about.
