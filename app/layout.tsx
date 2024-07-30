@@ -5,7 +5,8 @@ import Navbar from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
 
 import Footer from "@/components/footer";
-import Header from "@/components/header";
+import HeaderComponent from "@/components/header-comp";
+
 
 
 const defaultUrl = process.env.VERCEL_URL
@@ -29,7 +30,7 @@ export default function RootLayout({
         className="bg-background text-foreground flex flex-col items-center relative 
       min-h-screen"
       >
-        <Header />
+        <HeaderComponent />
         <Navbar />
         <main className="min-h-screen flex flex-col items-center w-full h-full">
           {children}

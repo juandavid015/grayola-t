@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Icons } from "./ui/icons";
 import AuthButton from "./auth-button";
 
-const Header = () => {
+const HeaderComponent = () => {
   return (
     <header
       className="flex gap-4 justify-between items-center w-full py-2 px-8
@@ -16,4 +16,4 @@ const Header = () => {
     </header>
   );
 }
-export default Header;
+export default HeaderComponent;
