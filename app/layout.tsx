@@ -3,8 +3,10 @@ import "./globals.css";
 
 import Navbar from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
-import Header from "@/components/header";
+
 import Footer from "@/components/footer";
+import Header from "@/components/header";
+
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
