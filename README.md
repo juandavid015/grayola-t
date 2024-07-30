@@ -19,6 +19,7 @@
 </p>
 <br/>
 
+This project is a web application for managing design projects. It is built with Next.js for the frontend, styled using Tailwind CSS, and uses Supabase for the backend. The application supports multiple user roles, including Clients, Project Managers, and Designers, each with specific permissions and interactions.
 ## Features
 
 - Works across the entire [Next.js](https://nextjs.org) stack
@@ -29,7 +30,7 @@
   - Server
   - It just works!
 - supabase-ssr. A package to configure Supabase Auth to use cookies
-- Styling with [Tailwind CSS](https://tailwindcss.com)
+- Styling with [Tailwind CSS](https://tailwindcss.com) and [shadcn](https://ui.shadcn.com/)
 - Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
   - Environment variables automatically assigned to Vercel project
 
